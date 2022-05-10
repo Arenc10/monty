@@ -4,13 +4,13 @@
  *@top - First operand top of the stack
  *@line: Second operand int
  */
-void _pop(stack_t **top, unsigned int line)
+void _pop(stack_t **top, __attribute__((unused)) unsigned int line)
 {
 	stack_t *temp;
 
 	if (*top == NULL)
 		printf("Error\n");
 	(*top)->next = temp;
-	free(top);
-	(*top) = temp;
+	free(*top);
+	*top = temp;
 }

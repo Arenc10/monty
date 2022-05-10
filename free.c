@@ -4,17 +4,17 @@
  * @top: First operand
  * @line: Second operand
  */
-void _free(stack_t **top, unsigned int line)
+void _free(stack_t *top)
 {
 	stack_t *temp;
 
-	if (*top == NULL)
-		exit(0);
-	while (*top != NULL)
+	if (top == NULL)
+		return;
+	while (top != NULL)
 	{
-		temp = *top;
-		*top = (*top)->next;
+		temp = top;
+		top = (top)->next;
 		free(temp);
 	}
-	free(*top);
+	free(top);
 }

@@ -4,20 +4,24 @@
  * @top: First operand pointer to pointer
  * @line: Secnd operand an int
  */
-void _push(stack_t **top, unsigned int line)
+void _push(stack_t **top, __attribute__((unused))unsigned int line)
 {
 	stack_t *new;
 
 	new = malloc(sizeof(stack_t));
-	new->n = line;
+	if (new == NULL)
+		printf("Error\n");
+	new->n = value;
 	new->prev = NULL;
 
 	if (*top == NULL)
-		new = *top;
+	{
+		new->next = NULL
+		*top = new;
 	else
 	{
 		new->next = *top;
 		(*top)->prev = new;
-		new = *top;
+		*top = new;
 	}
 }

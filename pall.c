@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * _all - Function that prints all elements of a stack
+ * _pall - Function that prints all elements of a stack
  * @top: First element of a stacked list
  * @line: Second element a value
  */
-void _all(stack_t **top, unsigned int line)
+void _pall(stack_t **top, __attribute__((unused))unsigned int line)
 {
 	while (*top != NULL)
 	{

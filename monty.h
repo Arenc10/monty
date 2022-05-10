@@ -49,5 +49,5 @@ void _rotr(stack_t **top, unsigned int line);
 void _nop(stack_t **top, unsigned int line);
 void _pchar(stack_t **top, unsigned int line);
 void _pstr(stack_t **top, unsigned int line);
-
+extern int value;
 #endif
