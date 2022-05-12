@@ -1,6 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <sys/types.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -37,7 +41,7 @@ void _push(stack_t **top, unsigned int line);
 void _pall(stack_t **top, unsigned int line);
 void _pint(stack_t **top, unsigned int line);
 void _pop(stack_t **top, unsigned int line);
-void _free(stack_t **top);
+void _free(stack_t *top);
 void _swap(stack_t **top, unsigned int line);
 void _add(stack_t **top, unsigned int line);
 void _sub(stack_t **top, unsigned int line);
@@ -49,5 +53,5 @@ void _rotr(stack_t **top, unsigned int line);
 void _nop(stack_t **top, unsigned int line);
 void _pchar(stack_t **top, unsigned int line);
 void _pstr(stack_t **top, unsigned int line);
-extern int value;
+void (*get_op_code(char *token, unsigned int line))(stack_t **, unsigned int);
 #endif
