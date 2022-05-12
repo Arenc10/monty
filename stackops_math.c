@@ -10,7 +10,7 @@ void _add(stack_t **top, unsigned int line)
 
         if (*top == NULL || (*top)->next == NULL)
         {
-                fprintf(stderr, "L%u: can't add, stack too short", line);
+                fprintf(stderr, "L%u: can't add, stack too short\n", line);
                 exit(EXIT_FAILURE);
         }
         else
@@ -31,7 +31,7 @@ void _sub(stack_t **top, unsigned int line)
 
         if (*top == NULL || (*top)->next == NULL)
         {
-                fprintf(stderr, "L%u: can't sub, stack too short", line);
+                fprintf(stderr, "L%u: can't sub, stack too short\n", line);
                 exit(EXIT_FAILURE);
         }
         else
@@ -52,7 +52,7 @@ void _mul(stack_t **top, unsigned int line)
 
         if (*top == NULL || (*top)->next == NULL)
         {
-                fprintf(stderr, "L%u: can't mul, stack too short", line);
+                fprintf(stderr, "L%u: can't mul, stack too short\n", line);
                 exit(EXIT_FAILURE);
         }
         else
@@ -74,15 +74,17 @@ void _div(stack_t **top, unsigned int line)
 
         if (*top == NULL || (*top)->next == NULL)
         {
-                fprintf(stderr, "L%u: can't sub, stack too short", line);
+                fprintf(stderr, "L%u: can't div, stack too short\n", line);
                 exit(EXIT_FAILURE);
         }
-        else
+        if ((*top)->n == 0)
         {
-                temp = (*top)->next;
-                temp->n /= (*top)->n;
-                _pop(top, line);
+                fprintf(stderr, "L%u: division by zero\n", line);
+                exit(EXIT_FAILURE);
         }
+        temp = (*top)->next;
+        temp->n /= (*top)->n;
+        _pop(top, line);
 }
 /**
  * _mod - Function that adds values of two nodes
@@ -96,11 +98,14 @@ void _mod(stack_t **top, unsigned int line)
 
         if (*top == NULL || (*top)->next == NULL)
         {
-                printf("L<line_number>: can't add, stack too short");
+                printf("L%u: can't mod, stack too short\n", line);
                 exit(EXIT_FAILURE);
         }
         if ((*top)->n == 0)
-                printf("Error");
+	{
+                fprintf(stderr, "L%u: division by zero\n", line);
+		exit(EXIT_FAILURE);
+	}
         temp = (*top)->next;
         temp->n %= (*top)->n;
         _pop(top, line);
