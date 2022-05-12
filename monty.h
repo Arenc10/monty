@@ -54,4 +54,5 @@ void _nop(stack_t **top, unsigned int line);
 void _pchar(stack_t **top, unsigned int line);
 void _pstr(stack_t **top, unsigned int line);
 void (*get_op_code(char *token, unsigned int line))(stack_t **, unsigned int);
+void invalid_instruction_error(char *token, unsigned int line);
 #endif

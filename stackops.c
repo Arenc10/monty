@@ -46,12 +46,15 @@ void _pall(stack_t **top, __attribute__((unused))unsigned int line)
  * @top
  * @line: Second operand an int
  */
-void _pint(stack_t **top, __attribute__((unused))unsigned int line)
+void _pint(stack_t **top, unsigned int line)
 {
 	if (*top != NULL)
 		printf("%i\n", (*top)->n);
 	else
-		printf("Error\n");
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line);
+		exit(EXIT_FAILURE);
+	}
 }
 /**
  *_pop - function that deletes the top element
