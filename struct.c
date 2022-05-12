@@ -15,6 +15,7 @@ void (*get_op_code(char *token, __attribute__((unused))unsigned int line))(stack
 		{"mod", _mod},
 		{"nop", _nop},
 		{"pchar", _pchar},
+		{"pstr", _pstr},
 		{NULL, NULL}
 	};
 	for (i = 0; operation[i].opcode != NULL; i++)
