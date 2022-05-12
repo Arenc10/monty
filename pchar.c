@@ -9,13 +9,13 @@ void _pchar(stack_t **top, unsigned int line)
 	int asci;
 	if (*top == NULL)
 	{
-		fprintf(stderr, "L%u: can't pchar, stack empty", line);
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 	asci = (*top)->n;
 	if (asci < 0 || asci > 127)
 	{
-		fprintf(stderr, "L%u: can't pchar, value out of range", line);
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line);
 		exit(EXIT_FAILURE);
 	}
 	putchar(asci);
