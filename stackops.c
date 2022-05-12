@@ -61,12 +61,15 @@ void _pint(stack_t **top, unsigned int line)
  *@top - First operand top of the stack
  *@line: Second operand int
  */
-void _pop(stack_t **top, __attribute__((unused)) unsigned int line)
+void _pop(stack_t **top, unsigned int line)
 {
 	stack_t *temp = *top;
 
 	if (*top == NULL)
-		printf("Error\n");
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line);
+                exit(EXIT_FAILURE);
+	}
 	temp = temp->next;
 	free(*top);
 	*top = temp;

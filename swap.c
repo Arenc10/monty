@@ -4,13 +4,13 @@
  * @top: First node
  * @line: Second operand
  */
-void _swap(stack_t **top, __attribute__((unused)) unsigned int line)
+void _swap(stack_t **top, unsigned int line)
 {
 	int temp;
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
-		printf("L<line_number>: can't swap, stack too short");
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	else
