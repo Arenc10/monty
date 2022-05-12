@@ -6,12 +6,13 @@
  */
 void _pchar(stack_t **top, unsigned int line)
 {
-	int asci = (*top)->n;
+	int asci;
 	if (*top == NULL)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty", line);
 		exit(EXIT_FAILURE);
 	}
+	asci = (*top)->n;
 	if (asci < 0 || asci > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range", line);
