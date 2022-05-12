@@ -8,13 +8,12 @@ void _rotl(stack_t **top, __attribute__((unused)) unsigned int line)
 {
 	stack_t *temp, *second, *last;
 
-	if (*top == NULL || (*top == NULL && (*top)->next == NULL))
+	if (*top == NULL || (*top != NULL && (*top)->next == NULL))
 		return;
-	second = *top;
 	temp = *top;
 	last = *top;
 
-	while (last != NULL)
+	while (last->next)
 		last = last->next;
 
 	second = (*top)->next;
