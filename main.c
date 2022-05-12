@@ -11,10 +11,10 @@ int main(int argc, char **argv)
 	stack_t *top = NULL;
 
 	if (argc != 2)
-		perror("Error");
+		usage_error();
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
-		perror("Error");
+		file_error(argv);
 	while ((line = getline(&buff, &length, fp)) != -1)
 	{
 		token = strtok(buff, " \n\t\r");
